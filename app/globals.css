@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.grain {
+  z-index: -1;
+  opacity: 0.9;
+  mix-blend-mode: overlay;
+  object-fit: scale-down;
+  background-image: url(../public/static.webp);
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: 204px;
+  background-attachment: scroll;
+  position: fixed;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+}
