@@ -7,6 +7,17 @@ const config: Config = {
       josefinSans: ["__Josefin_Sans_f4c4b3", "__Josefin_Sans_Fallback_f4c4b3"],
       researcher: ["__researcher_2c0b3a", "__researcher_Fallback_2c0b3a"],
     },
+    extend: {
+      keyframes: {
+        "caret-blink": {
+          "0%,70%,100%": { opacity: "1" },
+          "20%,50%": { opacity: "0" },
+        },
+      },
+      animation: {
+        "caret-blink": "caret-blink 1.25s ease-out infinite",
+      },
+    },
   },
   plugins: [],
 };

@@ -50,9 +50,9 @@ function Background() {
 
       <div className="grain" />
 
-      <div data-poster-url="/bg.mp4" data-autoplay={true} data-loop={true} data-wf-ignore={true} className="-z-20 w-full h-full filter blur-2xl object-cover block fixed top-0 bottom-0 left-0 right-0">
-        <video id="d6f1d52f-9da1-65ea-b5e0-5b1d28bbc683-video" className="w-full h-full object-cover z-[-100] bg-[50%] bg-cover m-auto absolute -top-full -bottom-full -left-full -right-full" autoPlay loop style={{ backgroundImage: "url('/bg.mp4')" }} muted playsInline>
-          <source src="/0723.mp4" data-wf-ignore={true} />
+      <div data-poster-url="/bg.png" data-autoplay={true} data-loop={true} data-wf-ignore={true} className="-z-20 w-full h-full filter blur-2xl object-cover block fixed top-0 bottom-0 left-0 right-0">
+        <video id="d6f1d52f-9da1-65ea-b5e0-5b1d28bbc683-video" className="w-full h-full object-cover z-[-100] bg-[50%] bg-cover m-auto absolute -top-full -bottom-full -left-full -right-full" autoPlay loop style={{ backgroundImage: "url('/bg.png')" }} muted playsInline>
+          <source src="/bg.mp4" data-wf-ignore={true} />
           <source src="/bg.webm" data-wf-ignore={true} />
         </video>
       </div>

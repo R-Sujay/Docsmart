@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className="bg-[#0f1012] overflow-visible">{children}</body>
+        <body className="bg-[#0f1012]">{children}</body>
       </html>
     </ClerkProvider>
   );
