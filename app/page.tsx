@@ -17,7 +17,7 @@ function page() {
               <h1 className="text-7xl uppercase font-researcher font-bold">DocSmart</h1>
             </div>
 
-            <p className="text-gray-500 font-josefinSans text-lg max-w-2xl mx-auto">Upload your document, and our chatbot will answer questions, summarize content, and answer all your Q's. Ideal for everyone, Chat with PDF turns static documents into dynamic conversations, enhancing productivity 10x fold effortlessly.</p>
+            <p className="text-gray-500 font-josefinSans text-lg max-w-2xl mx-auto">Upload your document and our chatbot will answer questions summarize content and answer all your Qs. Ideal for everyone Chat with PDF turns static documents into dynamic conversations enhancing productivity 10x fold effortlessly.</p>
 
             <div className="flex items-center justify-center lg:justify-start space-x-5 mt-5">
               <div className="relative hidden lg:inline">
