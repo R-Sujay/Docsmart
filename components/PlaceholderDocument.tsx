@@ -6,9 +6,11 @@ import { PlusCircleIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Background from "./Background";
 import Image from "next/image";
+import useSubscription from "@/hooks/useSubscription";
 
 function PlaceholderDocument() {
   const router = useRouter();
+  const { isOverFileLimit } = useSubscription();
 
   const handleClick = async () => {
     // check

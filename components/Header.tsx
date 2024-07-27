@@ -9,6 +9,7 @@ import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { Input } from "./ui/input";
 import getUserFiles from "@/utils/getUserFiles";
+import UpgradeButton from "./UpgradeButton";
 
 function Header({ totalDocs }: { totalDocs?: boolean }) {
   const pathname = usePathname();
@@ -22,13 +23,14 @@ function Header({ totalDocs }: { totalDocs?: boolean }) {
       {pathname !== "/" && (
         <SignedIn>
           <div className="flex items-center justify-between flex-1 text-white">
-            <div className="max-w-2xl text-lg font-semibold font-montserrat text-gray-200 mx-auto flex-1 flex justify-between">
+            <div className="max-w-2xl hidden text-lg px-5 font-semibold font-montserrat text-gray-200 mx-auto flex-1 md:flex justify-between">
               <Link href="/dashboard/upgrade">Pricing</Link>
 
               <Link href="/dashboard">My Documents</Link>
               <Link href="/dashboard/upload">New Chat</Link>
             </div>
-            <div className="">
+            <div className="flex justify-between ml-auto space-x-4">
+              <UpgradeButton />
               <UserButton />
             </div>
           </div>

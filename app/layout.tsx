@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import { Josefin_Sans, Montserrat } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import RecoilContainer from "@/components/RecoilContainer";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "DocSmart",
@@ -33,7 +34,10 @@ export default function RootLayout({
     <ClerkProvider>
       <RecoilContainer>
         <html lang="en">
-          <body className="bg-[#0f1012]">{children}</body>
+          <body className="bg-[#0f1012]">
+            <Toaster />
+            {children}
+          </body>
         </html>
       </RecoilContainer>
     </ClerkProvider>

@@ -1,5 +1,6 @@
 "use client";
 
+import useSubscription from "@/hooks/useSubscription";
 import useUpload from "@/hooks/useUpload";
 import { fileIdState, tabState } from "@/recoil/fileUploadAtom";
 import { CircleArrowDown, RocketIcon } from "lucide-react";
@@ -8,15 +9,26 @@ import { useRouter } from "next/navigation";
 import React, { useCallback, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import { useRecoilValue } from "recoil";
+import { useToast } from "./ui/use-toast";
 
 function FileUploader() {
   const { handleUpload } = useUpload();
+  const { isOverFileLimit, filesLoading } = useSubscription();
+  const { toast } = useToast();
 
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
     // Do something with the files
     const file = acceptedFiles[0];
     if (file) {
-      await handleUpload(file);
+      if (!isOverFileLimit && !filesLoading) {
+        await handleUpload(file);
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Free Plan File Limit Reached",
+          description: "Upgrade to add more documents",
+        });
+      }
     } else {
     }
   }, []);
@@ -32,12 +44,12 @@ function FileUploader() {
         {isDragActive ? (
           <>
             <RocketIcon className="h-20 w-20 animate-ping" />
-            <p>Drop the files here ...</p>
+            <p className="text-center">Drop the files here ...</p>
           </>
         ) : (
           <>
             <CircleArrowDown className="h-20 w-20 animate-bounce" />
-            <p>Drag n drop some files here, or click to select files</p>
+            <p className="text-center">Drag n drop some files here, or click to select files</p>
           </>
         )}
       </div>

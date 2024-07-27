@@ -18,6 +18,26 @@ export async function askQuestion(id: string, question: string) {
   const chatSnapshot = await chatRef.get();
   const userMessages = chatSnapshot.docs.filter((doc) => doc.data().role === "human");
 
+  const userRef = await adminDb.collection("users").doc(userId!).get();
+
+  if (!userRef.data()?.hasActiveMembership) {
+    if (userMessages.length >= FREE_LIMIT) {
+      return {
+        success: false,
+        message: `You'll need to upgrade to PRO to ask more than ${FREE_LIMIT} questions!`,
+      };
+    }
+  }
+
+  if (userRef.data()?.hasActiveMembership) {
+    if (userMessages.length >= PRO_LIMIT) {
+      return {
+        success: false,
+        message: `You'll need to upgrade to PRO to ask more than ${PRO_LIMIT} questions!`,
+      };
+    }
+  }
+
   const userMessage: Message = {
     role: "human",
     message: question,

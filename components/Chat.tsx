@@ -10,6 +10,7 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import { collection, orderBy, query } from "firebase/firestore";
 import { askQuestion } from "@/actions/askQuestion";
 import ChatMessage from "./ChatMessage";
+import { useToast } from "./ui/use-toast";
 
 export type Message = {
   id?: string;
@@ -21,6 +22,7 @@ export type Message = {
 function Chat({ id }: { id: string }) {
   const { user } = useUser();
   const [input, setInput] = useState("");
+  const { toast } = useToast();
   const [messages, setMessages] = useState<Message[]>([]);
   const [isPending, startTransition] = useTransition();
   const bottomOfChatRef = useRef<HTMLDivElement>(null);
@@ -68,13 +70,19 @@ function Chat({ id }: { id: string }) {
       const { success, message } = await askQuestion(id, q);
 
       if (!success) {
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: message,
+        });
+
         setMessages((prev) => prev.slice(0, prev.length - 1).concat([{ role: "ai", message: `Whoops... ${message}`, createdAt: new Date() }]));
       }
     });
   };
 
   return (
-    <div className="flex flex-col h-full overflow-y-scroll">
+    <div className="flex flex-col h-full w-full overflow-y-scroll">
       <div className="flex-1 w-full">
         {loading ? (
           <div className="flex items-center justify-center">

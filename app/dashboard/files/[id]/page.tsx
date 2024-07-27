@@ -25,7 +25,7 @@ async function ChatToFilePage({ params: { id } }: { params: { id: string } }) {
         <Chat id={id} />
       </div>
 
-      <div className="col-span-5 lg:col-span-3 scrollbar-hide lg:-order-1 overflow-auto">
+      <div className="col-span-full lg:col-span-3 scrollbar-hide lg:-order-1 overflow-auto">
         <PdfView url={url} />
       </div>
     </div>
