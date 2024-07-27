@@ -20,7 +20,8 @@ function FileUploader() {
     // Do something with the files
     const file = acceptedFiles[0];
     if (file) {
-      if (!isOverFileLimit && !filesLoading) {
+      // if (!isOverFileLimit && !filesLoading) {
+      if (!isOverFileLimit) {
         await handleUpload(file);
       } else {
         toast({
