@@ -3,6 +3,7 @@ import "./globals.css";
 import localFont from "next/font/local";
 import { Josefin_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import RecoilContainer from "@/components/RecoilContainer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,7 +20,6 @@ const researcher = localFont({
 });
 
 const josefinSans = Josefin_Sans({ weight: "400", subsets: ["latin"] });
-console.log(researcher.style);
 
 export default function RootLayout({
   children,
@@ -28,9 +28,11 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className="bg-[#0f1012]">{children}</body>
-      </html>
+      <RecoilContainer>
+        <html lang="en">
+          <body className="bg-[#0f1012]">{children}</body>
+        </html>
+      </RecoilContainer>
     </ClerkProvider>
   );
 }

@@ -7,6 +7,15 @@ const config: Config = {
       josefinSans: ["__Josefin_Sans_f4c4b3", "__Josefin_Sans_Fallback_f4c4b3"],
       researcher: ["__researcher_2c0b3a", "__researcher_Fallback_2c0b3a"],
     },
+    screens: {
+      xs: "320px",
+      sm: "640px",
+      md: "790px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+      heightMin: { raw: "(min-height: 680px)" },
+    },
     extend: {
       keyframes: {
         "caret-blink": {
