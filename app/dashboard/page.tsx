@@ -28,7 +28,7 @@ async function Dashboard() {
 
       {totalDocs ? (
         <>
-          <h1 className="text-3xl p-5 font-extralight text-indigo-600 pt-14">My Documents</h1>
+          <h1 className="text-3xl p-5 uppercase font-researcher font-bold text-white pt-14">My Documents</h1>
           <Documents documentsSnapshot={files} />
         </>
       ) : (

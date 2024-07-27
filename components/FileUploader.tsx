@@ -10,15 +10,7 @@ import { useDropzone } from "react-dropzone";
 import { useRecoilValue } from "recoil";
 
 function FileUploader() {
-  const fileId = useRecoilValue<string | null>(fileIdState);
-  const router = useRouter();
   const { handleUpload } = useUpload();
-
-  useEffect(() => {
-    if (fileId) {
-      router.push(`/dashboard/files/${fileId}`);
-    }
-  }, [fileId, router]);
 
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
     // Do something with the files
@@ -32,7 +24,7 @@ function FileUploader() {
   const { getRootProps, getInputProps, isDragActive, isFocused, isDragAccept } = useDropzone({ onDrop, accept: { "application/pdf": [".pdf"] } });
 
   return (
-    <div {...getRootProps()} className={`p-10 border-indigo-600 w-full relative z-0 text-white border-dashed border-2 rounded-3xl h-full flex items-center justify-center ${isFocused || isDragAccept ? "bg-indigo-950" : "bg-clip-padding backdrop-filter backdrop-blur"}`}>
+    <div {...getRootProps()} className={`p-10 border-[#012e29] w-full relative z-0 text-[#c7c3be] border-dashed border-2 rounded-3xl h-full flex items-center justify-center ${isFocused || isDragAccept ? "bg-clip-padding backdrop-filter backdrop-blur-[100] bg-opacity-10 bg-white" : "bg-clip-padding backdrop-filter backdrop-blur-[100] bg-opacity-10"}`}>
       <input {...getInputProps()} />
       {/* <img src="https://static.vecteezy.com/system/resources/previews/021/680/448/non_2x/gradient-indigo-background-illustration-free-photo.jpg" className="absolute -z-10 filter blur-2xl" alt="" /> */}
 

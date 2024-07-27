@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .glass {
+    @apply bg-clip-padding backdrop-filter backdrop-blur-[100] bg-opacity-10 bg-white;
+  }
+  .pdfControl-btn {
+    @apply glass text-white;
+  }
+}
+
 .grain {
   z-index: -1;
   opacity: 0.9;
@@ -46,4 +55,9 @@
   filter: blur(20px);
   opacity: 1;
   animation: animate 8s linear infinite;
+}
+
+.cl-avatarBox {
+  width: 2.75rem;
+  height: 2.75rem;
 }

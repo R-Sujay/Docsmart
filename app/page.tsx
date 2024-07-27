@@ -8,7 +8,6 @@ function page() {
   return (
     <div className="">
       <Background />
-      {/* <Loading /> */}
       <div className="min-h-screen flex-col justify-between flex max-w-7xl mx-auto">
         <Header />
         <div className="flex-1 flex justify-between xl:p-0 px-5 items-center">

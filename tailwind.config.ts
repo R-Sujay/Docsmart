@@ -6,6 +6,7 @@ const config: Config = {
     fontFamily: {
       josefinSans: ["__Josefin_Sans_f4c4b3", "__Josefin_Sans_Fallback_f4c4b3"],
       researcher: ["__researcher_2c0b3a", "__researcher_Fallback_2c0b3a"],
+      montserrat: ["__Montserrat_b1da2a", "__Montserrat_Fallback_b1da2a"],
     },
     screens: {
       xs: "320px",
@@ -28,6 +29,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwind-scrollbar-hide")],
+  plugins: [require("tailwind-scrollbar-hide"), require("tailwind-scrollbar")],
 };
 export default config;

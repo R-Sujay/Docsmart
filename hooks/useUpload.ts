@@ -7,7 +7,7 @@ import { useUser } from "@clerk/nextjs";
 import { doc, setDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useRouter } from "next/navigation";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { v4 as uuidv4 } from "uuid";
 
 export enum StatusText {
@@ -21,7 +21,7 @@ export type Status = StatusText[keyof StatusText];
 
 function useUpload() {
   const setProgress = useSetRecoilState<number | null>(progressState);
-  const setFileId = useSetRecoilState<string | null>(fileIdState);
+  const [fileId, setFileId] = useRecoilState<string | null>(fileIdState);
   const setStatus = useSetRecoilState<string | null>(statusState);
   const { user } = useUser();
   const router = useRouter();
@@ -69,7 +69,9 @@ function useUpload() {
 
         setStatus(StatusText.UPLOADED);
 
-        router.push("/dashboard");
+        setTab(0);
+
+        router.push(`/dashboard/files/${fileIdToUploadTo}`);
 
         setFileId(fileIdToUploadTo);
       }
