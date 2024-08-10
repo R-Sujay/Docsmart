@@ -14,7 +14,7 @@ function Document({ id, name, downloadUrl, size }: { id: string; name: string; d
   const { hasActiveMembership } = useSubscription();
 
   return (
-    <div className="flex flex-col w-64 h-80 rounded-xl bg-[#1c2541] drop-shadow-md justify-between p-4 transition-all transform hover:scale-105 hover:bg-[#3a506b] hover:text-white cursor-pointer group">
+    <div className="flex flex-col w-64 h-80 rounded-xl bg-gray-900 drop-shadow-md justify-between p-4 transition-all transform hover:scale-105 hover:bg-[#3a506b] hover:text-white cursor-pointer group">
       <div
         className="flex-1"
         onClick={() => {
@@ -27,8 +27,8 @@ function Document({ id, name, downloadUrl, size }: { id: string; name: string; d
 
       <div className="flex space-x-2 justify-end">
         <Button
-          variant="outline"
           disabled={isDeleting || !hasActiveMembership}
+          className="border-gray-700 border"
           onClick={() => {
             const prompt = window.confirm("Are you sure you want to delete this document?");
             if (prompt) {
@@ -42,7 +42,7 @@ function Document({ id, name, downloadUrl, size }: { id: string; name: string; d
           <Trash2Icon className="h-6 w-6 text-red-500" />
           {!hasActiveMembership && <span className="text-red-500 ml-2">PRO Feature</span>}
         </Button>
-        <Button variant="outline" asChild>
+        <Button className="border-gray-700 border" asChild>
           <a href={downloadUrl} download>
             <DownloadCloud className="h-6 w-6 text-indigo-600" />
           </a>

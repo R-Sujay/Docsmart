@@ -21,10 +21,10 @@ const ChatMessage = ({ message }: { message: Message }) => {
         <h5 className={`pb-1 text-sm font-semibold leading-snug ${isHuman ? "text-right" : "text-left"} text-white`}>{isHuman ? "You" : "DOCSMART"}</h5>
         <div className="grid w-max">
           <div className={`inline-flex items-center max-w-lg ${isHuman ? "justify-end" : "justify-start"} gap-3 rounded ${isHuman ? "bg-[#1c2541] text-white" : "bg-[#1c2541] text-white"} px-3.5 py-2`}>
-            <h5 className="text-sm font-normal leading-snug">
+            <h5 className="text-sm font-normal leading-snug text-white">
               {message.message === "Thinking..." ? (
                 <div className="flex items-center justify-center">
-                  <Loader2Icon className="animate-spin h-5 w-5 text-black" />
+                  <Loader2Icon className="animate-spin h-5 w-5 text-white" />
                 </div>
               ) : (
                 <Markdown>{message.message}</Markdown>

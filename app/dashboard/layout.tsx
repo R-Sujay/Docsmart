@@ -6,6 +6,7 @@ import React from "react";
 async function DashboardLayout({ children }: { children: React.ReactNode }) {
   const { files } = await getUserFiles();
   const totalDocs = files.docs.length > 0;
+
   return (
     <ClerkLoaded>
       <div className="flex flex-col flex-1 h-screen">

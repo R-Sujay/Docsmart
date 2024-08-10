@@ -102,10 +102,10 @@ function Chat({ id }: { id: string }) {
       </div>
 
       <form onSubmit={handleSubmit} className="flex sticky bottom-0 space-x-2 p-5 bg-[#1c2541]">
-        <Input placeholder="Ask a Question..." value={input} onChange={(e) => setInput(e.target.value)} className="bg-[#3a506b] border-0" />
+        <Input placeholder="Ask a Question..." value={input} onChange={(e) => setInput(e.target.value)} className="bg-[#3a506b] text-white border-0" />
 
         <Button type="submit" disabled={!input || isPending} className="bg-black text-white">
-          {isPending ? <Loader2Icon className="animate-spin text-indigo-600" /> : <SendHorizontal className="text-white" />}
+          {isPending ? <Loader2Icon className="animate-spin" /> : <SendHorizontal />}
         </Button>
       </form>
     </div>

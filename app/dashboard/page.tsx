@@ -4,7 +4,6 @@ import Documents from "@/components/Documents";
 import React from "react";
 import Image from "next/image";
 import FileUpload from "@/components/FileUpload";
-import { adminDb } from "@/firebaseAdmin";
 import { auth } from "@clerk/nextjs/server";
 import getUserFiles from "@/utils/getUserFiles";
 
