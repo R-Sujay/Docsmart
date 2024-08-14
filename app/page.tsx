@@ -1,8 +1,14 @@
 import Background from "@/components/Background";
 import Header from "@/components/Header";
 import HeroAnimation from "@/components/HeroAnimation";
+import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "DocSmart",
+  description: "Unlock the power of DocSmart! Upload a PDF and let DocSmart answer your questions, making it easier to access the information you need.",
+};
 
 function page() {
   return (
