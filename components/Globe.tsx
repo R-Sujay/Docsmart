@@ -7,8 +7,8 @@ import ThreeGlobe from "three-globe";
 import countries from "./files/globe-data-min.json";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 
-const Globe = () => {
-  const globeRef = useRef();
+const Globe: React.FC = () => {
+  const globeRef = useRef<THREE.Group>(new THREE.Group());
   const { scene } = useThree();
 
   useEffect(() => {
@@ -17,7 +17,8 @@ const Globe = () => {
     globe.rotateY(-Math.PI * (5 / 9));
     globe.rotateZ(-Math.PI / 6);
 
-    const globeMaterial = globe.globeMaterial();
+    // Cast the material to MeshPhongMaterial
+    const globeMaterial = globe.globeMaterial() as THREE.MeshPhongMaterial;
     globeMaterial.color = new THREE.Color(0x0c1d47);
     globeMaterial.emissive = new THREE.Color(0x0c1d47);
     globeMaterial.emissiveIntensity = 0.3;
@@ -32,11 +33,13 @@ const Globe = () => {
   }, [scene]);
 
   useFrame((state, delta) => {
-    globeRef.current.rotation.y += 0.5 * delta; // Subtle spin
+    if (globeRef.current) {
+      globeRef.current.rotation.y += 0.5 * delta; // Subtle spin
+    }
   });
 
-  const window = useWindowDimensions().width < 1280;
-  const scale = !window ? 0.01 : 0.006;
+  const isSmallScreen = typeof window !== "undefined" ? useWindowDimensions().width < 1280 : false;
+  const scale = isSmallScreen ? 0.006 : 0.01;
 
   return (
     <group ref={globeRef} scale={[scale, scale, scale]}>

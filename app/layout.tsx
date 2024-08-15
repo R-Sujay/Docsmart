@@ -23,8 +23,6 @@ const researcher = localFont({
 const josefinSans = Josefin_Sans({ weight: "400", subsets: ["latin"] });
 const montserrat = Montserrat({ subsets: ["latin"] });
 
-console.log(montserrat.style);
-
 export default function RootLayout({
   children,
 }: Readonly<{

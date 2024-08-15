@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/animation/page.jsx", "app/animation/util.js", "app/animation/util.js", "components/HeroAnimation.jsx", "components/Globe.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/animation/page.jsx", "app/animation/util.js", "app/animation/util.js", "components/HeroAnimation.tsx", "components/Globe.tsx"],
   "exclude": ["node_modules"]
 }
