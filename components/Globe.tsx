@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useRef, useEffect } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
@@ -12,12 +10,13 @@ const Globe: React.FC = () => {
   const { scene } = useThree();
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const globe = new ThreeGlobe().hexPolygonsData(countries.features).hexPolygonResolution(3).hexPolygonMargin(0.7).showAtmosphere(true).atmosphereColor("#3a228a").atmosphereAltitude(0.25);
 
     globe.rotateY(-Math.PI * (5 / 9));
     globe.rotateZ(-Math.PI / 6);
 
-    // Cast the material to MeshPhongMaterial
     const globeMaterial = globe.globeMaterial() as THREE.MeshPhongMaterial;
     globeMaterial.color = new THREE.Color(0x0c1d47);
     globeMaterial.emissive = new THREE.Color(0x0c1d47);
@@ -34,11 +33,11 @@ const Globe: React.FC = () => {
 
   useFrame((state, delta) => {
     if (globeRef.current) {
-      globeRef.current.rotation.y += 0.5 * delta; // Subtle spin
+      globeRef.current.rotation.y += 0.5 * delta;
     }
   });
 
-  const isSmallScreen = typeof window !== "undefined" ? useWindowDimensions().width < 1280 : false;
+  const isSmallScreen = useWindowDimensions().width < 1280;
   const scale = isSmallScreen ? 0.006 : 0.01;
 
   return (

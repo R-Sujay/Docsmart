@@ -1,12 +1,14 @@
 "use client";
 
 import React from "react";
+import dynamic from "next/dynamic";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import Globe from "./Globe";
+
+// Dynamically import the Globe component with SSR disabled
+const Globe = dynamic(() => import("./Globe"), { ssr: false });
 
 const HeroAnimation = () => {
-  // Define a constant for globe size control
   const GLOBE_SIZE = 0.5; // Adjust this value to change the globe size
 
   return (
